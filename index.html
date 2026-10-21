@@ -6,59 +6,77 @@
     <title>Joyeux Anniversaire ! 🎁</title>
     <style>
         body {
-            background-color: #0f0c1b;
-            color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121214;
+            color: #e2e8f0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
             margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
         }
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid #ff007f;
-            box-shadow: 0 0 20px #ff007f;
+            max-width: 500px;
+            width: 100%;
+            background: #1a1a1e;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #2d2d34;
         }
-        h1 { color: #ff007f; text-shadow: 0 0 10px #ff007f; }
-        h2 { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+        h1 { color: #ffffff; font-weight: 600; font-size: 24px; margin-bottom: 20px; letter-spacing: -0.5px; }
+        h2 { color: #d4af37; font-weight: 500; font-size: 20px; margin-bottom: 15px; }
+        p { color: #94a3b8; font-size: 15px; line-height: 1.6; }
         .step { display: none; }
         .active { display: block; }
         button {
-            background: #ff007f;
-            color: white;
+            background: #d4af37;
+            color: #121214;
             border: none;
-            padding: 12px 25px;
-            font-size: 16px;
-            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 6px;
             cursor: pointer;
-            box-shadow: 0 0 10px #ff007f;
-            transition: 0.3s;
-            margin-top: 15px;
+            transition: all 0.2s ease;
+            margin-top: 25px;
+            width: 100%;
         }
-        button:hover { background: #00ffff; color: #000; box-shadow: 0 0 15px #00ffff; }
+        button:hover { background: #f3cd57; transform: translateY(-1px); }
         input[type="text"], input[type="number"] {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #00ffff;
-            background: #222;
+            padding: 12px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: 1px solid #3f3f46;
+            background: #27272a;
             color: #fff;
             text-align: center;
-            width: 80%;
-            margin-top: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 15px;
+            transition: border-color 0.2s;
+        }
+        input:focus { border-color: #d4af37; outline: none; }
+        .poster-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
         .ticket {
-            background: linear-gradient(135deg, #ff007f, #7f00ff);
-            padding: 20px;
-            border-radius: 10px;
-            border: 3px dashed #fff;
-            margin-top: 20px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+            background: #222227;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #d4af37;
+            margin-top: 25px;
+            text-align: left;
         }
-        .error { color: #ff3333; margin-top: 10px; font-weight: bold; }
+        .ticket h3 { margin: 0 0 10px 0; color: #fff; font-size: 16px; letter-spacing: 1px; }
+        .ticket p { margin: 5px 0; font-size: 14px; color: #cbd5e1; }
+        .error { color: #ef4444; margin-top: 12px; font-size: 14px; text-align: left; }
     </style>
 </head>
 <body>
@@ -66,60 +84,63 @@
 <div class="container">
     <!-- INTRO -->
     <div id="step-0" class="step active">
-        <h1>Joyeux Anniversaire mon Amour ! ❤️</h1>
-        <p>Pour tes 35 ans, je t'ai préparé une petite surprise...</p>
-        <p>Mais pour la découvrir, tu vas devoir réussir ce mini-jeu de piste virtuel. Es-tu prête ? 🕵️‍♀️</p>
-        <button onclick="nextStep(1)">C'est parti !</button>
+        <h1>Joyeux Anniversaire ❤️</h1>
+        <p>Pour célébrer tes 35 ans, je te réserve une surprise toute particulière...</p>
+        <p>Pour y accéder, j'ai préparé trois courtes énigmes à résoudre. Laisse-toi guider.</p>
+        <button onclick="nextStep(1)">Commencer</button>
     </div>
 
     <!-- ENIGME 1 -->
     <div id="step-1" class="step">
-        <h2>Étape 1 : Le Dress Code Extravagant 🕺</h2>
-        <p>Pour cet événement, le survêtement fluo, la perruque mulet et les lunettes de soleil aérodynamiques sont presque obligatoires.</p>
-        <p><strong>Énigme :</strong> Quel est le titre du morceau ultra-connu de ce groupe allemand qui commence par un cri survolté et qui donne envie de sauter partout ? (Indice : H_ _ _   H_ _ _)</p>
-        <input type="text" id="ans-1" placeholder="Tape le mot magique ici...">
+        <h2>Étape 1 : Le Code Musical 🎵</h2>
+        <p>Nous allons assister à un événement marquant. Ce groupe allemand mélange le metalcore et la techno dans une énergie folle.</p>
+        <p>Quel est le titre de leur chanson la plus emblématique ?</p>
+        <p style="font-size:13px; color:#64748b;">(Indice : H_ _ _   H_ _ _)</p>
+        <input type="text" id="ans-1" placeholder="Entrez le titre...">
         <div id="err-1" class="error"></div>
         <button onclick="checkStep1()">Valider</button>
     </div>
 
     <!-- ENIGME 2 -->
     <div id="step-2" class="step">
-        <h2>Étape 2 : La Destination 📍</h2>
-        <p>Bravo ! Tu as le rythme dans la peau.</p>
-        <p>Maintenant, parlons du lieu. C'est une salle mythique située à Bruxelles, en Belgique. Son nom évoque la verdure, mais l'ambiance y est toujours brûlante.</p>
-        <p><strong>Énigme :</strong> Comment s'appelle cette salle ? </p>
+        <h2>Étape 2 : Le Lieu du Rendez-vous 📍</h2>
+        <p>Félicitations, première étape validée.</p>
+        <p>Le concert aura lieu dans une salle mythique et historique située à Bruxelles.</p>
+        <p>Quel est le nom de cette célèbre enceinte ?</p>
         <input type="text" id="ans-2" placeholder="Nom de la salle...">
         <div id="err-2" class="error"></div>
-        <button onclick="checkStep2()">Vérifier le lieu</button>
+        <button onclick="checkStep2()">Confirmer le lieu</button>
     </div>
 
     <!-- ENIGME 3 -->
     <div id="step-3" class="step">
-        <h2>Étape 3 : Trouver votre place 🎫</h2>
-        <p>Tu y es presque ! Le rendez-vous est pris pour le <strong>mardi 16 février 2027 à 20:00</strong>.</p>
-        <p>Pour débloquer tes accès, j'ai besoin que tu entres le numéro de la <strong>Tribune</strong> où nous serons assis côte à côte.</p>
-        <p><strong>Indice :</strong> C'est un nombre à trois chiffres. Le premier est un 1, le deuxième est un 1, et le troisième vaut la moitié de 0.</p>
+        <h2>Étape 3 : Vos Accès 🎫</h2>
+        <p>Nous y sommes presque. La date est cochée : le <strong>mardi 16 février 2027</strong>.</p>
+        <p>Pour dévoiler officiellement l'invitation, indique le numéro de la <strong>Tribune</strong> où nous serons placés côte à côte.</p>
+        <p style="font-size:13px; color:#64748b;">(Indice : C'est le numéro 110)</p>
         <input type="number" id="ans-3" placeholder="Numéro de la Tribune...">
         <div id="err-3" class="error"></div>
-        <button onclick="checkStep3()">Révéler le cadeau ! 🎉</button>
+        <button onclick="checkStep3()">Révéler la surprise</button>
     </div>
 
     <!-- REVELATION -->
     <div id="step-4" class="step">
-        <h1>🎉 SURPRISE ! 🎉</h1>
-        <p>Tu as brillamment réussi le jeu de piste ! Nous allons voir...</p>
-        <h2>ELECTRIC CALLBOY en concert ! ⚡🎤</h2>
+        <h1>Une surprise t'attend... ✨</h1>
+        <p>Tu as brillamment résolu le parcours. Nous y allons ensemble !</p>
         
+        <!-- Affiche officielle de la tournée 2027 d'Electric Callboy -->
+        <img class="poster-img" src="https://impericon.com" alt="Affiche Tanzneid World Tour 2027">
+
         <div class="ticket">
-            <h3>TANZNEID WORLD TOUR 2027</h3>
+            <h3>ELECTRIC CALLBOY</h3>
+            <p style="color:#d4af37; font-weight:600; margin-bottom:12px;">TANZNEID WORLD TOUR 2027</p>
             <p><strong>Lieu :</strong> Forest National, Bruxelles</p>
-            <p><strong>Date :</strong> Mardi 16/02/2027 à 20:00</p>
-            <hr style="border: 1px dashed #fff;">
-            <p><strong>Vos Places (Normal) :</strong></p>
-            <p>Tribune 110 | Rangée 9 | Siège 4</p>
-            <p>Tribune 110 | Rangée 9 | Siège 5</p>
+            <p><strong>Date :</strong> Mardi 16 février 2027 à 20:00</p>
+            <p style="margin-top: 15px; border-top: 1px solid #3f3f46; padding-top: 10px;">
+                <strong>Places :</strong> Tribune 110 — Rangée 9 — Sièges 4 & 5
+            </p>
         </div>
-        <p style="margin-top:20px;">Prépare ton plus beau costume fluo, ça va secouer ! Je t'aime ❤️</p>
+        <p style="margin-top:30px; font-style: italic; color:#fff;">Joyeux anniversaire, je t'aime ❤️</p>
     </div>
 </div>
 
@@ -134,7 +155,7 @@
         if(ans === 'hypa hypa' || ans === 'hypahypa') {
             nextStep(2);
         } else {
-            document.getElementById('err-1').innerText = "Ce n'est pas ça... Pense à de la techno-metalcore très festive !";
+            document.getElementById('err-1').innerText = "Ce n'est pas tout à fait la bonne réponse. Réessaye !";
         }
     }
 
@@ -143,7 +164,7 @@
         if(ans.includes('forest') || ans.includes('vorst')) {
             nextStep(3);
         } else {
-            document.getElementById('err-2').innerText = "Non, cherche une grande salle de concert bruxelloise bien connue.";
+            document.getElementById('err-2').innerText = "Le nom saisi ne correspond pas à la salle bruxelloise attendue.";
         }
     }
 
@@ -152,7 +173,7 @@
         if(ans === '110') {
             nextStep(4);
         } else {
-            document.getElementById('err-3').innerText = "Regarde bien l'indice mathématique !";
+            document.getElementById('err-3').innerText = "Veuillez reporter le numéro de la tribune fourni dans l'indice.";
         }
     }
 </script>
