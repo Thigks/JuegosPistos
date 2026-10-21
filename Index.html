@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Anniversaire ! 🎁</title>
+    <style>
+        body {
+            background-color: #0f0c1b;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #ff007f;
+            box-shadow: 0 0 20px #ff007f;
+        }
+        h1 { color: #ff007f; text-shadow: 0 0 10px #ff007f; }
+        h2 { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+        .step { display: none; }
+        .active { display: block; }
+        button {
+            background: #ff007f;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff007f;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+        button:hover { background: #00ffff; color: #000; box-shadow: 0 0 15px #00ffff; }
+        input[type="text"], input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #00ffff;
+            background: #222;
+            color: #fff;
+            text-align: center;
+            width: 80%;
+            margin-top: 10px;
+        }
+        .ticket {
+            background: linear-gradient(135deg, #ff007f, #7f00ff);
+            padding: 20px;
+            border-radius: 10px;
+            border: 3px dashed #fff;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+        .error { color: #ff3333; margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- INTRO -->
+    <div id="step-0" class="step active">
+        <h1>Joyeux Anniversaire mon Amour ! ❤️</h1>
+        <p>Pour tes un an de plus, je t'ai préparé une petite surprise...</p>
+        <p>Mais pour la découvrir, tu vas devoir réussir ce mini-jeu de piste virtuel. Es-tu prête ? 🕵️‍♀️</p>
+        <button onclick="nextStep(1)">C'est parti !</button>
+    </div>
+
+    <!-- ENIGME 1 -->
+    <div id="step-1" class="step">
+        <h2>Étape 1 : Le Dress Code Extravagant 🕺</h2>
+        <p>Pour cet événement, le survêtement fluo, la perruque mulet et les lunettes de soleil aérodynamiques sont presque obligatoires.</p>
+        <p><strong>Énigme :</strong> Quel est le titre du morceau ultra-connu de ce groupe allemand qui commence par un cri survolté et qui donne envie de sauter partout ? (Indice : H_ _ _   H_ _ _)</p>
+        <input type="text" id="ans-1" placeholder="Tape le mot magique ici...">
+        <div id="err-1" class="error"></div>
+        <button onclick="checkStep1()">Valider</button>
+    </div>
+
+    <!-- ENIGME 2 -->
+    <div id="step-2" class="step">
+        <h2>Étape 2 : La Destination 📍</h2>
+        <p>Bravo ! Tu as le rythme dans la peau.</p>
+        <p>Maintenant, parlons du lieu. C'est une salle mythique située à Bruxelles, en Belgique. Son nom évoque la verdure, mais l'ambiance y est toujours brûlante.</p>
+        <p><strong>Énigme :</strong> Comment s'appelle cette salle ? (Écris juste "Forest" ou "Vorst")</p>
+        <input type="text" id="ans-2" placeholder="Nom de la salle...">
+        <div id="err-2" class="error"></div>
+        <button onclick="checkStep2()">Vérifier le lieu</button>
+    </div>
+
+    <!-- ENIGME 3 -->
+    <div id="step-3" class="step">
+        <h2>Étape 3 : Trouver votre place 🎫</h2>
+        <p>Tu y es presque ! Le rendez-vous est pris pour le <strong>mardi 16 février 2027 à 20:00</strong>.</p>
+        <p>Pour débloquer tes accès, j'ai besoin que tu entres le numéro de la <strong>Tribune</strong> où nous serons assis côte à côte.</p>
+        <p><strong>Indice :</strong> C'est un nombre à trois chiffres. Le premier est un 1, le deuxième est un 1, et le troisième vaut la moitié de 0.</p>
+        <input type="number" id="ans-3" placeholder="Numéro de la Tribune...">
+        <div id="err-3" class="error"></div>
+        <button onclick="checkStep3()">Révéler le cadeau ! 🎉</button>
+    </div>
+
+    <!-- REVELATION -->
+    <div id="step-4" class="step">
+        <h1>🎉 SURPRISE ! 🎉</h1>
+        <p>Tu as brillamment réussi le jeu de piste ! Nous allons voir...</p>
+        <h2>ELECTRIC CALLBOY en concert ! ⚡🎤</h2>
+        
+        <div class="ticket">
+            <h3>TANZNEID WORLD TOUR 2027</h3>
+            <p><strong>Lieu :</strong> Forest National, Bruxelles</p>
+            <p><strong>Date :</strong> Mardi 16/02/2027 à 20:00</p>
+            <hr style="border: 1px dashed #fff;">
+            <p><strong>Vos Places (Normal) :</strong></p>
+            <p>Tribune 110 | Rangée 9 | Siège 4</p>
+            <p>Tribune 110 | Rangée 9 | Siège 5</p>
+        </div>
+        <p style="margin-top:20px;">Prépare ton plus beau costume fluo, ça va secouer ! Je t'aime ❤️</p>
+    </div>
+</div>
+
+<script>
+    function nextStep(stepNum) {
+        document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+        document.getElementById('step-' + stepNum).classList.add('active');
+    }
+
+    function checkStep1() {
+        let ans = document.getElementById('ans-1').value.trim().toLowerCase();
+        if(ans === 'hypa hypa' || ans === 'hypahypa') {
+            nextStep(2);
+        } else {
+            document.getElementById('err-1').innerText = "Ce n'est pas ça... Pense à de la techno-metalcore très festive !";
+        }
+    }
+
+    function checkStep2() {
+        let ans = document.getElementById('ans-2').value.trim().toLowerCase();
+        if(ans.includes('forest') || ans.includes('vorst')) {
+            nextStep(3);
+        } else {
+            document.getElementById('err-2').innerText = "Non, cherche une grande salle de concert bruxelloise bien connue.";
+        }
+    }
+
+    function checkStep3() {
+        let ans = document.getElementById('ans-3').value.trim();
+        if(ans === '110') {
+            nextStep(4);
+        } else {
+            document.getElementById('err-3').innerText = "Regarde bien l'indice mathématique !";
+        }
+    }
+</script>
+
+</body>
+</html>
